@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from '../../images/iconjob.png'; // with import
+import logo from '../../images/FondoLogin.png'; // with import
 import '../../App.css';
 
 export const Login = (props) => {
@@ -26,11 +26,12 @@ export const Login = (props) => {
     return (
         <div className="auth-form-container">
           <div className="title">
-          <img src={logo} class="iconlogo" />
+          <img src={logo} className="iconlogo" />
             <h2>Inicio de sesión </h2>
             </div> 
             <form className="login-form" onSubmit={handleSubmit}>
-                <label htmlFor="email">EMAIL</label>
+                <label htmlFor="email">Email</label>
+                <br></br>
                 <input value={email} onChange={handleChange} placeholder="correo@gmail.com" id="email" name="email" />
                 {error &&  <p style={{color: 'red'}}>{error}</p>}
                 <label htmlFor="password">CONTRASEÑA</label>

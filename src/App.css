@@ -1,56 +1,14 @@
-.App {
-  text-align: center;
-  display: flex;
-  min-height: 100vh;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  background-image: linear-gradient(79deg, #537ad3, #565578 48%, #a1d3d3);
+/* Set global font */
+body {
+  font-family: 'Open Sans', sans-serif;
 }
 
-.auth-form-container, .login-form, .register-form {
-  display: flex;
-  flex-direction: column;
-}
-
-@media screen and (min-width: 600px) {
-  .auth-form-container {
-    padding: 5rem;
-    border: 1px solid white;
-    border-radius: 10px;
-    margin: 0.5rem;
-  }
-}
-
-label {
-  text-align: left;
-  padding: 0.25rem 0;
-}
-
-input {
-  width: 85%;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 10px;
-  margin-bottom: 10px;
-}
-.register-form input::placeholder {
-  text-align: center;
-}
-
-button {
-  border: none;
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  cursor: pointer;
-  color: #320303;
-}
-
-.link-btn {
-  background: none;
-  color: white;
-  text-decoration: underline;
+/* Set global colors */
+:root {
+  --primary-color: #537ad3;
+  --secondary-color: #565578;
+  --tertiary-color: #a1d3d3;
+  --text-color: white;
 }
 .iconlogo{
   width: 75px;
@@ -59,3 +17,77 @@ button {
   
 }
 
+/* Center app content */
+.App {
+  text-align: center;
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(79deg, var(--primary-color), var(--secondary-color) 48%, var(--tertiary-color));
+  color: var(--text-color);
+}
+
+/* Style auth forms */
+.auth-form-container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+}
+
+.auth-form-container h2 {
+  margin-bottom: 2rem;
+}
+
+.auth-form-container label {
+  text-align: left;
+  padding: 0.25rem 0;
+}
+
+.auth-form-container input {
+  width: 88%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.auth-form-container input::placeholder {
+  text-align: center;
+}
+
+.auth-form-container button {
+  border: none;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.auth-form-container button:hover {
+  background-color: var(--secondary-color);
+}
+
+.auth-form-container .link-btn {
+  background: none;
+  color: var(--primary-color);
+  text-decoration: underline;
+  margin-top: 1rem;
+}
+
+.auth-form-container .link-btn:hover {
+  color: var(--secondary-color);
+}
+
+.auth-form-container {
+  background-color: #a1d3d3;
+}
+
+.auth-form-container input::placeholder {
+  text-align: center;
+}

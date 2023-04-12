@@ -20,8 +20,8 @@ export const Edit = (props) => {
 
     return (
     <div className="auth-form-container">
-    <h2>Edita tu información</h2>
     <form className="register-form" onSubmit={handleSubmit}>
+    <h2>Edita tu información</h2>
         <div style={{ display: 'flex', flexWrap: 'wrap' }}>
             <div style={{ width: '50%', display: 'inline-block' }}>
                 <label htmlFor="name">Nombres</label>
@@ -69,15 +69,15 @@ export const Edit = (props) => {
                 <input value={address} onChange={(e) => setAddress(e.target.value)}type="address" placeholder="" id="address" name="address" />
             </div>
             <div style={{ width: '50%', display: 'inline-block' }}>
-                <label htmlFor="password">Contraseña</label>
+                <label htmlFor="description">Description</label>
                 <br></br>
-                <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="********" id="password" name="password" />
+                <input value={description} onChange={(e) => setPass(e.target.value)} type="description" placeholder="" id="description" name="description" />
             </div>
         </div>
         <br></br>
         <button type="submit">Edit</button>
     </form>
-    <button className="link-btn" onClick={() => props.onFormSwitch('login')}>Regresa.</button>
+    <button className="link-btn" onClick={() => props.onFormSwitch('login')}>Regresar.</button>
 </div>
 
     )
