@@ -13,10 +13,27 @@ export const Register = (props) => {
     const [address, setAddress] = useState('');
     const [usuario, setUsuario] = useState({});
     const [roles, setRoles] = useState([]);
+    const [rol, setRol] = useState('');
+    const [description, setDescription] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(email);
+
+
+        axios.post('http://localhost:8080/ws/user/add?role_id=' + usuario.rol, {
+            "loginName": email,
+            "password": pass,
+            "isActive": true,
+            "email": email,
+            "fullName": name,
+            "phoneNumber": phone,
+            "address": address,
+            "city": city,
+            "country": country,
+            "userDescription": description,
+            "role_id": usuario.rol
+        }
+        )
     }
     useEffect(() => {
         axios.get('http://localhost:8080/ws/role/all')
@@ -38,21 +55,15 @@ export const Register = (props) => {
     }
 
     const onChangue = (e) => {
+        //found id at roles
+        const found = roles.find(element => element.roleName === e.target.value);
+        console.log(found);
         setUsuario({
             ...usuario,
-            [e.target.name]: e.target.value
+            'rol': found.id
         })
-        axios.post('http://localhost:8080/ws/user/add', {
-            "loginName": email,
-            "password": pass,
-            "email": email,
-            "fullName": name,
-            "phoneNumber": phone,
-            "address": address,
-            "city": city,
-            "country": country,
-        }
-        )
+        
+        setRol(e.target.value);
 
     }
 
@@ -74,12 +85,12 @@ export const Register = (props) => {
             <div style={{ width: '50%', display: 'inline-block' }}>
                 <label htmlFor="id">Id</label>
                 <br></br>
-                <input value={id} name="id" onChange={(e) => setId(e.target.value)} id="id" placeholder="Id" />
+                <input value={id} name="id" onChange={(e) => setId(e.target.value)} id="id" placeholder="Id" type="number" />
             </div>
             <div style={{ width: '50%', display: 'inline-block' }}>
                 <label htmlFor="phone">Número de celular</label>
                 <br></br>
-                <input value={phone} name="numero" onChange={(e) => setPhone(e.target.value)} id="numero" placeholder="Número de celular" />
+                <input value={phone} name="numero" onChange={(e) => setPhone(e.target.value)} id="numero" placeholder="Número de celular" type="number" />
             </div>
             <div style={{ width: '50%', display: 'inline-block' }}>
                 <label htmlFor="country">País</label>
@@ -94,7 +105,7 @@ export const Register = (props) => {
             <div style={{ width: '50%', display: 'inline-block' }}>
                 <label htmlFor="email">Email</label>
                 <br></br>
-                <input value={email} onChange={(e) => setEmail(e.target.value)}type="email" placeholder="correo@dominio.com" id="email" name="email" />
+                <input value={email} onChange={(e) => setEmail(e.target.value)}type="email" placeholder="correo@dominio.com" id="email" name="email" type="email" />
             </div>
             <div style={{ width: '50%', display: 'inline-block' }}>
                 <label htmlFor="password">Contraseña</label>
@@ -107,17 +118,16 @@ export const Register = (props) => {
                 <input value={address} onChange={(e) => setAddress(e.target.value)}type="address" placeholder="" id="address" name="address" />
             </div>
             <div style={{ width: '50%', display: 'inline-block' }}>
-                <label htmlFor="password">Contraseña</label>
+                <label htmlFor="description">Descripcion</label>
                 <br></br>
-                <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="********" id="password" name="password" />
+                <input value={description} onChange={(e) => setDescription(e.target.value)} type="description" placeholder="" id="description" name="description" />
             </div>
             <div style={{ width: '50%', display: 'inline-block' }}>
                 <label htmlFor="description">Tipo de usuario</label>
                 <br></br>
-                <select value="Rol" onChange={onChangue} name="rol">
-                    <option value="">Seleccione un tipo de usuario</option>
+                <select value={rol} onChange={onChangue}>
                     {roles && roles.map((role) => (
-                        <option value={role.roleName}>{role.roleName}</option>
+                        <option value={role.roleName} key={role.id}>{role.roleName}</option>
                     ))}
                 </select>
                </div>
@@ -126,7 +136,8 @@ export const Register = (props) => {
 
         <br></br>
         <button disabled={!isValidate()} onClick={handleSubmit} className="btn btn-primary">Registrarse</button>
-        </form>
+        
+    </form>
     <button className="link-btn" onClick={() => props.onFormSwitch('login')}>Ya tienes una cuenta? Ingresa ahora.</button>
 </div>
 
