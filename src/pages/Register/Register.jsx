@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-
+import React, { useEffect, useState } from "react";
+import axios from 'axios';
 
 export const Register = (props) => {
     const [email, setEmail] = useState('');
@@ -11,17 +11,55 @@ export const Register = (props) => {
     const [country, setCountry] = useState('');
     const [city, setCity] = useState('');
     const [address, setAddress] = useState('');
-    const [description, setDescription] = useState('');
+    const [usuario, setUsuario] = useState({});
+    const [roles, setRoles] = useState([]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(email);
     }
+    useEffect(() => {
+        axios.get('http://localhost:8080/ws/role/all')
+            .then(res => {
+                console.log(res.data);
+                setRoles(res.data);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }, [])
+
+    const isValidate = () => {
+        if (email === '' || id === '' || pass === '' || name === '' || apellidos === '' || phone === '' || country === '' || city === '' || address === '' || usuario.rol === '') {
+            console.log('Todos los campos son obligatorios');
+            return false;
+        }
+        return true;
+    }
+
+    const onChangue = (e) => {
+        setUsuario({
+            ...usuario,
+            [e.target.name]: e.target.value
+        })
+        axios.post('http://localhost:8080/ws/user/add', {
+            "loginName": email,
+            "password": pass,
+            "email": email,
+            "fullName": name,
+            "phoneNumber": phone,
+            "address": address,
+            "city": city,
+            "country": country,
+        }
+        )
+
+    }
 
     return (
     <div className="auth-form-container">
     <h2>Registro Nuevo Usuario</h2>
-    <form className="register-form" onSubmit={handleSubmit}>
+    <form className="register-form">
         <div style={{ display: 'flex', flexWrap: 'wrap' }}>
             <div style={{ width: '50%', display: 'inline-block' }}>
                 <label htmlFor="name">Nombres</label>
@@ -73,10 +111,22 @@ export const Register = (props) => {
                 <br></br>
                 <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="********" id="password" name="password" />
             </div>
+            <div style={{ width: '50%', display: 'inline-block' }}>
+                <label htmlFor="description">Tipo de usuario</label>
+                <br></br>
+                <select value="Rol" onChange={onChangue} name="rol">
+                    <option value="">Seleccione un tipo de usuario</option>
+                    {roles && roles.map((role) => (
+                        <option value={role.roleName}>{role.roleName}</option>
+                    ))}
+                </select>
+               </div>
         </div>
+        <label htmlFor="llenar campos" disabled={isValidate()}>Debe llenar todos los campos</label>
+
         <br></br>
-        <button type="submit">Log In</button>
-    </form>
+        <button disabled={!isValidate()} onClick={handleSubmit} className="btn btn-primary">Registrarse</button>
+        </form>
     <button className="link-btn" onClick={() => props.onFormSwitch('login')}>Ya tienes una cuenta? Ingresa ahora.</button>
 </div>
 
