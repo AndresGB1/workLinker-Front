@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-
+import axios from "axios";
+import rutas from "../../utils/axios";
 
 export const Edit = (props) => {
     const [email, setEmail] = useState('');
     const [id, setId] = useState('');
-    const [pass, setPass] = useState('');
+    const [password, setPass] = useState('');
     const [name, setName] = useState('');
     const [apellidos, setApellidos] = useState('');
     const [phone, setPhone] = useState('');
@@ -17,13 +18,59 @@ export const Edit = (props) => {
         e.preventDefault();
         console.log(email);
     }
+    const buscar = () => {
+        
+        axios.get(rutas.host+rutas.user+rutas.get+`${id}`)
+        .then((res) => {
+        setName(res.data.fullName);
+        setApellidos(res.data.loginName);
+        setPhone(res.data.phoneNumber);
+        setCountry(res.data.country);
+        setCity(res.data.city);
+        setEmail(res.data.email);
+        setAddress(res.data.address);
+        setDescription(res.data.userDescription);
+        })
+        .catch((err) => {
+            alert("No se encontró el usuario");
+        });
+    }
+
+    const editar = () => {
+        axios.put(rutas.host+rutas.user+rutas.update+`${id}`, {
+            fullName: name,
+            loginName: apellidos,
+            phoneNumber: phone,
+            country: country,
+            city: city,
+            email: email,
+            address: address,
+            userDescription: description,
+            isActive: true,
+            password: password
+        })
+        .then((res) => {
+            alert("Se editó correctamente");
+        })
+        .catch((err) => {
+            alert("No se pudo editar");
+        });
+    }
+    const validar = () => {
+        if (name === '' || apellidos === '' || phone === '' || country === '' || city === '' || email === '' || address === '' || description === '' || password === '') {
+            alert("Por favor llene todos los campos");
+        } else {
+            editar();
+        }
+    }
+
 
     return (
     <div className="auth-form-container">
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <label htmlFor="searchId" style={{ marginRight: '10px' }}>Digite su Id para búsqueda: </label>
-            <input type="text" id="searchId" name="searchId" style={{ width: '300px', marginRight: '10px' }} />
-            <button style={{ width: '80px' }}>Buscar</button>
+            <input type="text" id="searchId" name="searchId" style={{ width: '300px', marginRight: '10px' }} onChange={(e) => setId(e.target.value)} />
+            <button style={{ width: '80px' }} onClick={() => buscar()}>Buscar</button>
         </div>
         <br /><br />
         <table>
@@ -69,7 +116,7 @@ export const Edit = (props) => {
             <div style={{ width: '50%', display: 'inline-block' }}>
                 <label htmlFor="phone">Número de celular</label>
                 <br></br>
-                <input value={phone} name="numero" onChange={(e) => setPhone(e.target.value)} id="numero" placeholder="Número de celular" />
+                <input value={phone} name="numero" onChange={(e) => setPhone(e.target.value)} id="numero" placeholder="Número de celular" type="number" />
             </div>
             <div style={{ width: '50%', display: 'inline-block' }}>
                 <label htmlFor="country">País</label>
@@ -84,7 +131,7 @@ export const Edit = (props) => {
             <div style={{ width: '50%', display: 'inline-block' }}>
                 <label htmlFor="email">Email</label>
                 <br></br>
-                <input value={email} onChange={(e) => setEmail(e.target.value)}type="email" placeholder="correo@dominio.com" id="email" name="email" />
+                <input value={email} onChange={(e) => setEmail(e.target.value)}type="email" placeholder="correo@dominio.com" id="email" name="email" type="email" />
             </div>
             <div style={{ width: '50%', display: 'inline-block' }}>
                 <label htmlFor="address">Dirección de residencia</label>
@@ -96,9 +143,14 @@ export const Edit = (props) => {
                 <br></br>
                 <input value={description} onChange={(e) => setPass(e.target.value)} type="description" placeholder="" id="description" name="description" />
             </div>
+            <div style={{ width: '50%', display: 'inline-block' }}>
+                <label htmlFor="password">Contraseña</label>
+                <br></br>
+                <input value={password} onChange={(e) => setPass(e.target.value)} type="password" placeholder="Contraseña" id="password" name="password" />
+                </div>
         </div>
         <br></br>
-        <button type="submit">Edit</button>
+        <button onClick={() => validar()}>Editar</button>
     </form>
     <button className="link-btn" onClick={() => props.onFormSwitch('login')}>Regresar.</button>
 </div>
