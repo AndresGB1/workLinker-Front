@@ -20,6 +20,39 @@ export const Edit = (props) => {
 
     return (
     <div className="auth-form-container">
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <label htmlFor="searchId" style={{ marginRight: '10px' }}>Digite su Id para búsqueda: </label>
+            <input type="text" id="searchId" name="searchId" style={{ width: '300px', marginRight: '10px' }} />
+            <button style={{ width: '80px' }}>Buscar</button>
+        </div>
+        <br /><br />
+        <table>
+      <thead>
+        <tr>
+          <th>Nombres</th>
+          <th>Apellidos</th>
+          <th>Número de celular</th>
+          <th>País</th>
+          <th>Ciudad</th>
+          <th>Email</th>
+          <th>Dirección de residencia</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{name}</td>
+          <td>{apellidos}</td>
+          <td>{phone}</td>
+          <td>{country}</td>
+          <td>{city}</td>
+          <td>{email}</td>
+          <td>{address}</td>
+          <td>{description}</td>
+        </tr>
+      </tbody>
+    </table>
+        <br /><br /><br />
     <form className="register-form" onSubmit={handleSubmit}>
     <h2>Edita tu información</h2>
         <div style={{ display: 'flex', flexWrap: 'wrap' }}>
@@ -32,11 +65,6 @@ export const Edit = (props) => {
                 <label htmlFor="apellidos">Apellidos</label>
                 <br></br>
                 <input value={apellidos} name="apellidos" onChange={(e) => setApellidos(e.target.value)} id="Apellidos"placeholder="Apellidos" />
-            </div>
-            <div style={{ width: '50%', display: 'inline-block' }}>
-                <label htmlFor="id">Id</label>
-                <br></br>
-                <input value={id} name="id" onChange={(e) => setId(e.target.value)} id="id" placeholder="Id" />
             </div>
             <div style={{ width: '50%', display: 'inline-block' }}>
                 <label htmlFor="phone">Número de celular</label>
@@ -59,23 +87,18 @@ export const Edit = (props) => {
                 <input value={email} onChange={(e) => setEmail(e.target.value)}type="email" placeholder="correo@dominio.com" id="email" name="email" />
             </div>
             <div style={{ width: '50%', display: 'inline-block' }}>
-                <label htmlFor="password">Contraseña</label>
-                <br></br>
-                <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="********" id="password" name="password" />
-            </div>
-            <div style={{ width: '50%', display: 'inline-block' }}>
                 <label htmlFor="address">Dirección de residencia</label>
                 <br></br>
                 <input value={address} onChange={(e) => setAddress(e.target.value)}type="address" placeholder="" id="address" name="address" />
             </div>
             <div style={{ width: '50%', display: 'inline-block' }}>
-                <label htmlFor="description">Descripcion</label>
+                <label htmlFor="description">Description</label>
                 <br></br>
                 <input value={description} onChange={(e) => setPass(e.target.value)} type="description" placeholder="" id="description" name="description" />
             </div>
         </div>
         <br></br>
-        <button type="submit">Editar</button>
+        <button type="submit">Edit</button>
     </form>
     <button className="link-btn" onClick={() => props.onFormSwitch('login')}>Regresar.</button>
 </div>
