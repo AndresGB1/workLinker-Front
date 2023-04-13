@@ -1,11 +1,34 @@
 import React, { useState } from "react";
-
+import axios from "axios";
+import rutas from "../../utils/axios";
 export const Delete = (props) => {
 const [id, setId] = useState('');
 const [action, setAction] = useState('delete');
 
 const handleDelete = (e) => {
   e.preventDefault();
+  if (action === 'delete') {
+    axios.delete(rutas.host + rutas.user + rutas.delete + `${id}`)
+      .then((res) => {
+        alert("Se eliminó correctamente");
+      })
+      .catch((err) => {
+        alert("No se pudo eliminar");
+      });
+  } else {
+    axios.put(rutas.host + rutas.user + rutas.inactive + `${id}`)
+      .then((res) => {
+        alert("Se inhabilitó correctamente");
+      })
+      .catch((err) => {
+        alert("No se pudo inhabilitar");
+      });
+
+    }
+
+
+
+
 }
 
 return (

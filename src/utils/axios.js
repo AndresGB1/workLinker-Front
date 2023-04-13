@@ -7,6 +7,7 @@ const rutas = {
     update: '/update/',
     delete: '/delete/',
     get: '/get/',
+    inactive: '/inactive/',
 }
 
 export default rutas;

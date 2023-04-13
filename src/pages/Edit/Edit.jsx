@@ -30,6 +30,7 @@ export const Edit = (props) => {
         setEmail(res.data.email);
         setAddress(res.data.address);
         setDescription(res.data.userDescription);
+        setPass(res.data.password);
         })
         .catch((err) => {
             alert("No se encontró el usuario");
