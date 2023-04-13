@@ -16,6 +16,12 @@ body {
   position: center;
   
 }
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
 
 /* Center app content */
 .App {
@@ -85,7 +91,7 @@ body {
 }
 
 .auth-form-container {
-  background-color: #a1d3d3;
+  background-color: #098080;
 }
 
 .auth-form-container input::placeholder {
