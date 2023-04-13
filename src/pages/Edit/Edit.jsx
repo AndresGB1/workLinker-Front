@@ -67,11 +67,6 @@ export const Edit = (props) => {
                 <input value={apellidos} name="apellidos" onChange={(e) => setApellidos(e.target.value)} id="Apellidos"placeholder="Apellidos" />
             </div>
             <div style={{ width: '50%', display: 'inline-block' }}>
-                <label htmlFor="id">Id</label>
-                <br></br>
-                <input value={id} name="id" onChange={(e) => setId(e.target.value)} id="id" placeholder="Id" />
-            </div>
-            <div style={{ width: '50%', display: 'inline-block' }}>
                 <label htmlFor="phone">Número de celular</label>
                 <br></br>
                 <input value={phone} name="numero" onChange={(e) => setPhone(e.target.value)} id="numero" placeholder="Número de celular" />
@@ -90,11 +85,6 @@ export const Edit = (props) => {
                 <label htmlFor="email">Email</label>
                 <br></br>
                 <input value={email} onChange={(e) => setEmail(e.target.value)}type="email" placeholder="correo@dominio.com" id="email" name="email" />
-            </div>
-            <div style={{ width: '50%', display: 'inline-block' }}>
-                <label htmlFor="password">Contraseña</label>
-                <br></br>
-                <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="********" id="password" name="password" />
             </div>
             <div style={{ width: '50%', display: 'inline-block' }}>
                 <label htmlFor="address">Dirección de residencia</label>
