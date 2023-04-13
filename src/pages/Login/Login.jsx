@@ -12,12 +12,20 @@ export const Login = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         axios
-        .post(rutas.user.login, {
+        .post(rutas.host+rutas.user+rutas.login+`?email=${email}&password=${pass}`, {
           email: email,
           password: pass,
         })
         .then((res) => {
-          console.log(res.data);
+         //si es null es porque no existe el usuario
+          if (res.data === "" || !isValidEmail(email)) {
+            alert("Datos incorrectos");
+            console.log(res.data);
+          }
+          else{
+            alert("Bienvenido");
+            props.onGoToHome();
+          }
         })
         .catch((err) => {
           console.log(err);
