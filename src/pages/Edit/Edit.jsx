@@ -69,13 +69,13 @@ export const Edit = (props) => {
                 <input value={address} onChange={(e) => setAddress(e.target.value)}type="address" placeholder="" id="address" name="address" />
             </div>
             <div style={{ width: '50%', display: 'inline-block' }}>
-                <label htmlFor="description">Description</label>
+                <label htmlFor="description">Descripcion</label>
                 <br></br>
                 <input value={description} onChange={(e) => setPass(e.target.value)} type="description" placeholder="" id="description" name="description" />
             </div>
         </div>
         <br></br>
-        <button type="submit">Edit</button>
+        <button type="submit">Editar</button>
     </form>
     <button className="link-btn" onClick={() => props.onFormSwitch('login')}>Regresar.</button>
 </div>
