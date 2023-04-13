@@ -19,7 +19,6 @@ export const Register = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-
         axios.post('http://localhost:8080/ws/user/add?role_id=' + usuario.rol, {
             "loginName": email,
             "password": pass,
@@ -38,7 +37,7 @@ export const Register = (props) => {
     useEffect(() => {
         axios.get('http://localhost:8080/ws/role/all')
             .then(res => {
-                console.log(res.data);
+                
                 setRoles(res.data);
             })
             .catch(err => {
@@ -48,7 +47,7 @@ export const Register = (props) => {
 
     const isValidate = () => {
         if (email === '' || id === '' || pass === '' || name === '' || apellidos === '' || phone === '' || country === '' || city === '' || address === '' || usuario.rol === '') {
-            console.log('Todos los campos son obligatorios');
+            
             return false;
         }
         return true;
@@ -57,7 +56,7 @@ export const Register = (props) => {
     const onChangue = (e) => {
         //found id at roles
         const found = roles.find(element => element.roleName === e.target.value);
-        console.log(found);
+        
         setUsuario({
             ...usuario,
             'rol': found.id
@@ -126,6 +125,7 @@ export const Register = (props) => {
                 <label htmlFor="description">Tipo de usuario</label>
                 <br></br>
                 <select value={rol} onChange={onChangue}>
+                    <option value="">Seleccione un rol</option>
                     {roles && roles.map((role) => (
                         <option value={role.roleName} key={role.id}>{role.roleName}</option>
                     ))}
