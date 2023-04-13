@@ -6,42 +6,63 @@ export const Login = (props) => {
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
     const [error, setError] = useState(null);
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(email);
+
+        if (isValidEmail(email)) {
+            props.onGoToHome();
+        } else {
+            setError('El email está mal escrito');
+        }
     }
+    
     function isValidEmail(email) {
         return /\S+@\S+\.\S+/.test(email);
-      }
+    }
     
-      const handleChange = event => {
-        if (!isValidEmail(event.target.value)) {
-          setError('El email esta mal escrito');
-        } else {
-          setError(null);
-        }
-    
+    const handleChange = event => {
         setEmail(event.target.value);
-      };
+        setError(null);
+    };
+
     return (
         <div className="auth-form-container">
-          <div className="title">
-          <img src={logo} className="iconlogo" />
-            <h2>Inicio de sesión </h2>
+            <div className="title">
+                <img src={logo} className="iconlogo" alt="Logo" />
+                <h2>Inicio de sesión</h2>
             </div> 
             <form className="login-form" onSubmit={handleSubmit}>
                 <label htmlFor="email">Email</label>
                 <br></br>
-                <input value={email} onChange={handleChange} placeholder="correo@gmail.com" id="email" name="email" />
+                <input 
+                    value={email} 
+                    onChange={handleChange} 
+                    placeholder="correo@gmail.com" 
+                    id="email" 
+                    name="email" 
+                />
                 {error &&  <p style={{color: 'red'}}>{error}</p>}
-                <label htmlFor="password">CONTRASEÑA</label>
-                <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="********" id="password" name="password" />
-                <button type="submit">INGRESAR</button>
-                
+                <label htmlFor="password">Contraseña</label>
+                <input 
+                    value={pass} 
+                    onChange={(e) => setPass(e.target.value)} 
+                    type="password" 
+                    placeholder="********" 
+                    id="password" 
+                    name="password" 
+                />
+                <button type="submit">Ingresar</button>
             </form>
-            <button className="link-btn" onClick={() => props.onFormSwitch('register')}>No tienes una cuenta? Registratre ahora.</button>
-            <button className="link-btnEdit" onClick={() => props.onFormSwitch('edit')}>Edita tu perfil.</button>
-            <button className="link-btnDelete" onClick={() => props.onFormSwitch('delete')}>Borra tu perfil.</button>
+            <button className="link-btn" onClick={() => props.onFormSwitch('register')}>
+                ¿No tienes una cuenta? Regístrate ahora.
+            </button>
+            <button className="link-btnEdit" onClick={() => props.onFormSwitch('edit')}>
+                Edita tu perfil.
+            </button>
+            <button className="link-btnDelete" onClick={() => props.onFormSwitch('delete')}>
+                Borra tu perfil.
+            </button>
         </div>
     )
 }
