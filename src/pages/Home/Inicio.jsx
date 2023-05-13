@@ -63,26 +63,26 @@ const Inicio = () => {
             </ol>
             <div className="carousel-inner">
             <div className="carousel-item active">
-              <img className="d-block w-100" src={imagen1} alt="First slide" style={{height:"460px"}} />
+              <img className="d-block w-100" src={imagen1} alt="First slide" style={{height:"600px"}} />
               <div className="carousel-caption" style={{ position: "absolute", width: "1080px", height: "104px", left: "380px", top: "100px" }}>
-                <p style={{ fontFamily: "Quicksand", fontStyle: "normal", fontWeight: "700", fontSize: "32px", lineHeight: "40px", color: "#FFFFFF" }}>
+                <p style={{ fontFamily: "Quicksand", fontStyle: "normal", fontWeight: "700", fontSize: "40px", lineHeight: "40px", color: "#FFFFFF" }}>
                   Uniendo talentos, creando oportunidades: Work Linker, la conexión perfecta entre empleadores y freelancers
                 </p>
               </div>
             </div>
             <div className="carousel-item">
-              <img className="d-block w-100" src={imagen2} alt="Second slide" />
-              <div className="carousel-caption" style={{ position: "absolute", width: "1080px", height: "104px", left: "205px", top: "235px" }}>
-                <p style={{ fontFamily: "Quicksand", fontStyle: "normal", fontWeight: "700", fontSize: "32px", lineHeight: "40px", color: "#FFFFFF" }}>
-                  Uniendo talentos, creando oportunidades: Work Linker, la conexión perfecta entre empleadores y freelancers
+              <img className="d-block w-100" src={imagen2} alt="Second slide" style={{height:"600px"}}/>
+              <div className="carousel-caption" style={{ position: "absolute", width: "1080px", height: "104px", left: "50px", top: "160px" }}>
+                <p style={{ fontFamily: "Quicksand", fontStyle: "normal", fontWeight: "700", fontSize: "52px", lineHeight: "40px", color: "#000000" }}>
+                Work Linker: Abriendo puertas y creando caminos para unir talentos y generar oportunidades entre empleadores y freelancers.
                 </p>
               </div>
             </div>
             <div className="carousel-item">
-              <img className="d-block w-100" src={imagen3} alt="Third slide" />
-              <div className="carousel-caption" style={{ position: "absolute", width: "1080px", height: "104px", left: "205px", top: "235px" }}>
-                <p style={{ fontFamily: "Quicksand", fontStyle: "normal", fontWeight: "700", fontSize: "32px", lineHeight: "40px", color: "#FFFFFF" }}>
-                  Uniendo talentos, creando oportunidades: Work Linker, la conexión perfecta entre empleadores y freelancers
+              <img className="d-block w-100" src={imagen3} alt="Third slide" style={{height:"600px"}}/>
+              <div className="carousel-caption" style={{ position: "absolute", width: "1080px", height: "104px", left: "350px", top: "235px" }}>
+                <p style={{ fontFamily: "Quicksand", fontStyle: "normal", fontWeight: "700", fontSize: "40px", lineHeight: "40px", color: "#FFFFFF" }}>
+                Con Work Linker, el talento encuentra su lugar y las oportunidades florecen, conectando de manera perfecta a empleadores y freelancers.
                 </p>
               </div>
             </div>
@@ -105,7 +105,7 @@ const Inicio = () => {
                 width: "200px",
                 height: "50px",
                 position: "absolute",
-                top: "50%",
+                top: "70%",
                 left: "35%",
                 background: "transparent",
                 color: "white",
@@ -121,7 +121,7 @@ const Inicio = () => {
                 width: "200px",
                 height: "50px",
                 position: "absolute",
-                top: "50%",
+                top: "70%",
                 left: "55%",
                 background: "transparent",
                 color: "white",
@@ -136,7 +136,7 @@ const Inicio = () => {
       </div>
       <div className="row">
         <div className="col-lg-12">
-        <div className="texto" style={{ position: "absolute", width: "900px", height: "104px", left: "80px", top: "630px" }}>
+        <div className="texto" style={{ position: "absolute", width: "900px", height: "104px", left: "80px", top: "30px" }}>
               <p style={{ fontFamily: "Quicksand", fontStyle: "normal", fontWeight: "800", fontSize: "20px", lineHeight: "40px", color: "#000000" }}>
               ¿Quiénes somos?</p>
               <p style={{ fontFamily: "Quicksand", fontStyle: "normal", fontWeight: "200", fontSize: "20px", lineHeight: "40px", color: "#000000" }}>

@@ -1,24 +1,16 @@
-<<<<<<< HEAD
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import React, { useState } from "react";
 import './App.css';
 // eslint-disable-next-line
-=======
-import React, { useState } from "react";
-import './App.css';
->>>>>>> 686736d36aa8c75ba1c2452c6b135a26dded1415
 import { Login } from "./pages/Login/Login";
 import { Register } from "./pages/Register/Register";
 import { Edit } from "./pages/Edit/Edit";
 import { Delete } from "./pages/Delete/Delete";
 import { Home } from "./pages/Home/Home";
-<<<<<<< HEAD
 import { Inicio } from "./pages/Home/Inicio";
 
 
-=======
->>>>>>> 686736d36aa8c75ba1c2452c6b135a26dded1415
 
 function App() {
   const [currentForm, setCurrentForm] = useState('login');
@@ -35,11 +27,7 @@ function App() {
     <div className="App">
       {
         currentForm === 'login' ? (
-<<<<<<< HEAD
           <Inicio onFormSwitch={toggleForm} onGoToHome={goToHome} />
-=======
-          <Login onFormSwitch={toggleForm} onGoToHome={goToHome} />
->>>>>>> 686736d36aa8c75ba1c2452c6b135a26dded1415
         ) : currentForm === 'register' ? (
           <Register onFormSwitch={toggleForm} />
         ) : currentForm === 'edit' ? (
