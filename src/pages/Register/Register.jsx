@@ -136,9 +136,11 @@ export const Register = (props) => {
 
         <br></br>
         <button disabled={!isValidate()} onClick={handleSubmit} className="btn btn-primary">Registrarse</button>
-        
+        <br></br>
+        <div><br>
+        </br></div>
     </form>
-    <button className="link-btn" onClick={() => props.onFormSwitch('login')}>Ya tienes una cuenta? Ingresa ahora.</button>
+    <button className="link-btn" onClick={() => props.onFormSwitch('Inicio')}>Ya tienes una cuenta? Ingresa ahora.</button>
 </div>
 
     )

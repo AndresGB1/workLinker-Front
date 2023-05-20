@@ -5,7 +5,7 @@ import imagen3 from "../../images/imagen3.jpg";
 import trabajoHay from "../../images/TrabajoHay.png";
 import { Button } from "react-bootstrap";
 
-const Inicio = () => {
+export const Inicio = (props) => {
   return (
     <div className="container-fluid">
       <div className="row">
@@ -35,7 +35,7 @@ const Inicio = () => {
               color: "black",
               marginRight: "30px",
               fontWeight: "bold",
-            }}>
+            }} onClick={() => props.onFormSwitch('register')}>
             Sign Up
           </Button>
 
@@ -47,7 +47,7 @@ const Inicio = () => {
               marginTop: "20px",
               marginRight: "40px",
               fontWeight: "bold",
-            }}>
+            }}onClick={() => props.onFormSwitch('home')}>
             Sign in
           </Button>
 
@@ -55,7 +55,7 @@ const Inicio = () => {
       </div>
       <div className="row mt-4">
         <div className="col-lg-12 px-0">
-          <div id="carousel" className="carousel slide" data-ride="carousel">
+        <div id="carousel" className="carousel slide" data-ride="carousel" data-interval="3000">
             <ol className="carousel-indicators">
               <li data-target="#carousel" data-slide-to="0" className="active"></li>
               <li data-target="#carousel" data-slide-to="1"></li>
@@ -63,7 +63,7 @@ const Inicio = () => {
             </ol>
             <div className="carousel-inner">
             <div className="carousel-item active">
-              <img className="d-block w-100" src={imagen1} alt="First slide" style={{height:"600px"}} />
+              <img className="d-block w-100" src={imagen1}  style={{height:"600px"}} />
               <div className="carousel-caption" style={{ position: "absolute", width: "1080px", height: "104px", left: "380px", top: "100px" }}>
                 <p style={{ fontFamily: "Quicksand", fontStyle: "normal", fontWeight: "700", fontSize: "40px", lineHeight: "40px", color: "#FFFFFF" }}>
                   Uniendo talentos, creando oportunidades: Work Linker, la conexión perfecta entre empleadores y freelancers
@@ -71,7 +71,7 @@ const Inicio = () => {
               </div>
             </div>
             <div className="carousel-item">
-              <img className="d-block w-100" src={imagen2} alt="Second slide" style={{height:"600px"}}/>
+              <img className="d-block w-100" src={imagen2} style={{height:"600px"}}/>
               <div className="carousel-caption" style={{ position: "absolute", width: "1080px", height: "104px", left: "50px", top: "160px" }}>
                 <p style={{ fontFamily: "Quicksand", fontStyle: "normal", fontWeight: "700", fontSize: "52px", lineHeight: "40px", color: "#000000" }}>
                 Work Linker: Abriendo puertas y creando caminos para unir talentos y generar oportunidades entre empleadores y freelancers.
@@ -79,7 +79,7 @@ const Inicio = () => {
               </div>
             </div>
             <div className="carousel-item">
-              <img className="d-block w-100" src={imagen3} alt="Third slide" style={{height:"600px"}}/>
+              <img className="d-block w-100" src={imagen3} style={{height:"600px"}}/>
               <div className="carousel-caption" style={{ position: "absolute", width: "1080px", height: "104px", left: "350px", top: "235px" }}>
                 <p style={{ fontFamily: "Quicksand", fontStyle: "normal", fontWeight: "700", fontSize: "40px", lineHeight: "40px", color: "#FFFFFF" }}>
                 Con Work Linker, el talento encuentra su lugar y las oportunidades florecen, conectando de manera perfecta a empleadores y freelancers.
@@ -166,4 +166,4 @@ const Inicio = () => {
   );
 };
 
-export { Inicio };
+
