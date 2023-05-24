@@ -4,6 +4,10 @@ import imagen2 from "../../images/imagen2.jpg";
 import imagen3 from "../../images/imagen3.jpg";
 import trabajoHay from "../../images/TrabajoHay.png";
 import { Button } from "react-bootstrap";
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
 
 export const Inicio = (props) => {
   return (
@@ -36,7 +40,7 @@ export const Inicio = (props) => {
               marginRight: "30px",
               fontWeight: "bold",
             }} onClick={() => props.onFormSwitch('register')}>
-            Sign Up
+            Registrarse
           </Button>
 
           <Button
@@ -47,67 +51,41 @@ export const Inicio = (props) => {
               marginTop: "20px",
               marginRight: "40px",
               fontWeight: "bold",
-            }}onClick={() => props.onFormSwitch('home')}>
-            Sign in
+            }}onClick={() => props.onFormSwitch('newLogin')}>
+            Iniciar sesion
           </Button>
 
-        </div>
+        </div> 
       </div>
       <div className="row mt-4">
-        <div className="col-lg-12 px-0">
-        <div id="carousel" className="carousel slide" data-ride="carousel" data-interval="3000">
-            <ol className="carousel-indicators">
-              <li data-target="#carousel" data-slide-to="0" className="active"></li>
-              <li data-target="#carousel" data-slide-to="1"></li>
-              <li data-target="#carousel" data-slide-to="2"></li>
-            </ol>
-            <div className="carousel-inner">
-            <div className="carousel-item active">
-              <img className="d-block w-100" src={imagen1}  style={{height:"600px"}} />
-              <div className="carousel-caption" style={{ position: "absolute", width: "1080px", height: "104px", left: "380px", top: "100px" }}>
-                <p style={{ fontFamily: "Quicksand", fontStyle: "normal", fontWeight: "700", fontSize: "40px", lineHeight: "40px", color: "#FFFFFF" }}>
-                  Uniendo talentos, creando oportunidades: Work Linker, la conexión perfecta entre empleadores y freelancers
-                </p>
-              </div>
-            </div>
-            <div className="carousel-item">
-              <img className="d-block w-100" src={imagen2} style={{height:"600px"}}/>
-              <div className="carousel-caption" style={{ position: "absolute", width: "1080px", height: "104px", left: "50px", top: "160px" }}>
-                <p style={{ fontFamily: "Quicksand", fontStyle: "normal", fontWeight: "700", fontSize: "52px", lineHeight: "40px", color: "#000000" }}>
-                Work Linker: Abriendo puertas y creando caminos para unir talentos y generar oportunidades entre empleadores y freelancers.
-                </p>
-              </div>
-            </div>
-            <div className="carousel-item">
-              <img className="d-block w-100" src={imagen3} style={{height:"600px"}}/>
-              <div className="carousel-caption" style={{ position: "absolute", width: "1080px", height: "104px", left: "350px", top: "235px" }}>
-                <p style={{ fontFamily: "Quicksand", fontStyle: "normal", fontWeight: "700", fontSize: "40px", lineHeight: "40px", color: "#FFFFFF" }}>
-                Con Work Linker, el talento encuentra su lugar y las oportunidades florecen, conectando de manera perfecta a empleadores y freelancers.
-                </p>
-              </div>
-            </div>
-          </div>
-            <a className="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-              <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span className="sr-only">Previous</span>
-            </a>
-            <a className="carousel-control-next" href="#carousel" role="button" data-slide="next">
-              <span className="carousel-control-next-icon" aria-hidden="true"></span>
-              <span className="sr-only">Next</span>
-            </a>
-          </div>
+      <Carousel showArrows={true} autoPlay= {true} showThumbs= {false} infiniteLoop= {true} interval={1600}>
+                <div>
+                    <img src={imagen1} height={500}/>
+                   
+                </div>
+                <div>
+                    <img src={imagen2} height={500}/>
+                   
+                </div>
+                <div>
+                    <img src={imagen3}height={500}/>
+                   
+                </div>
+            </Carousel>
+        <div className="col-alg-12 px-0">
+     
 
           <div className="button-container">
             <Button
-              variant="primary"
-              className="mr-2"
+              variant="secondary"
+              
               style={{
                 width: "200px",
                 height: "50px",
                 position: "absolute",
                 top: "70%",
                 left: "35%",
-                background: "transparent",
+            
                 color: "white",
                 border: "1px solid white",
                 fontWeight: "bold",
@@ -116,14 +94,15 @@ export const Inicio = (props) => {
               Busco empleo
             </Button>
             <Button
-              variant="primary"
+              variant="secondary"
+              className="BuscoFree"
               style={{
                 width: "200px",
                 height: "50px",
                 position: "absolute",
                 top: "70%",
                 left: "55%",
-                background: "transparent",
+             
                 color: "white",
                 border: "1px solid white",
                 fontWeight: "bold",
@@ -136,7 +115,7 @@ export const Inicio = (props) => {
       </div>
       <div className="row">
         <div className="col-lg-12">
-        <div className="texto" style={{ position: "absolute", width: "900px", height: "104px", left: "80px", top: "30px" }}>
+        <div className="texto" style={{ position: "absolute", width: "900px", height: "104px", left: "20px", top: "30px" }}>
               <p style={{ fontFamily: "Quicksand", fontStyle: "normal", fontWeight: "800", fontSize: "20px", lineHeight: "40px", color: "#000000" }}>
               ¿Quiénes somos?</p>
               <p style={{ fontFamily: "Quicksand", fontStyle: "normal", fontWeight: "200", fontSize: "20px", lineHeight: "40px", color: "#000000" }}>
@@ -149,6 +128,7 @@ export const Inicio = (props) => {
           </div>
         </div>
       </div>
+     
       <div className="col-lg-6 col-md-6 col-sm-12">
           <img
             src={trabajoHay}
@@ -156,8 +136,8 @@ export const Inicio = (props) => {
             alt="Logo"
             style={{
               width: "500px",
-              marginLeft: "1250px",
-              marginTop: "-20px",
+              marginLeft: "1000px",
+              marginTop: "-10px",
               height: "500px",
             }}
           />
@@ -165,5 +145,6 @@ export const Inicio = (props) => {
     </div>
   );
 };
+
 
 

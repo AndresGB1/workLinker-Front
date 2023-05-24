@@ -7,7 +7,8 @@ import { Edit } from "./pages/Edit/Edit";
 import { Delete } from "./pages/Delete/Delete";
 import { Home } from "./pages/Home/Home";
 import { Inicio } from "./pages/Home/Inicio";
-
+import { EditProfile} from "./pages/EditProfile/EditProfile";
+import {Loginuevo} from "./pages/Login/newLogin";
 
 
 function App() {
@@ -34,7 +35,11 @@ function App() {
           <Delete onFormSwitch={toggleForm} />
         ) : currentForm === 'home' ? (
           <Home onFormSwitch={toggleForm} />
-        ) : null
+        ) : currentForm === 'editprofile' ? (
+          <EditProfile onFormSwitch = {toggleForm} />
+        ) :currentForm==='newLogin' ? (
+          <Loginuevo onFormSwitch = { toggleForm} />
+        ) :null
       }
     </div>
   );

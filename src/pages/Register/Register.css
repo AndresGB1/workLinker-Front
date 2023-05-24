@@ -1,0 +1,49 @@
+.md-textarea{
+    width: 500pt;
+}
+.botonfeo{
+    max-height: 40px;
+}
+  textarea {
+
+    background: #ffffff;
+    border-radius: 10;
+    border: none;
+    border-bottom: 5px solid #ededed;
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 8px 0;
+    resize: none;
+    transition: border-color 150ms ease;
+    width: 30rem;
+  }
+  
+  textarea:hover {
+    border-color: #c6c6c6;
+  }
+  
+  textarea:focus {
+    outline: none;
+    border-color: #c6c6c6;
+  }
+  
+  textarea::placeholder {
+    color: #c6c6c6;
+  }
+  .text-black{
+    border-radius: 22px;
+    border-width: 2px;
+    border-color: black;
+  }
+  .order-2{
+    border-radius: 2ppx;
+    border-width: 2px;
+  }
+  .BottonVolver{
+    width: 200px;
+  }
+ 
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

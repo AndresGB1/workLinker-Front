@@ -67,12 +67,15 @@ export const Edit = (props) => {
 
 
     return (
+       
     <div className="auth-form-container">
+        
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <label htmlFor="searchId" style={{ marginRight: '10px' }}>Digite su Id para búsqueda: </label>
             <input type="text" id="searchId" name="searchId" style={{ width: '300px', marginRight: '10px' }} onChange={(e) => setId(e.target.value)} />
             <button style={{ width: '80px' }} onClick={() => buscar()}>Buscar</button>
         </div>
+       
         <br /><br />
         <table>
       <thead>
@@ -88,6 +91,7 @@ export const Edit = (props) => {
         </tr>
       </thead>
       <tbody>
+      
         <tr>
           <td>{name}</td>
           <td>{apellidos}</td>
@@ -100,9 +104,12 @@ export const Edit = (props) => {
         </tr>
       </tbody>
     </table>
+  
         <br /><br /><br />
+        
     <form className="register-form" onSubmit={handleSubmit}>
     <h2>Edita tu información</h2>
+    
         <div style={{ display: 'flex', flexWrap: 'wrap' }}>
             <div style={{ width: '50%', display: 'inline-block' }}>
                 <label htmlFor="name">Nombres</label>
@@ -132,7 +139,7 @@ export const Edit = (props) => {
             <div style={{ width: '50%', display: 'inline-block' }}>
                 <label htmlFor="email">Email</label>
                 <br></br>
-                <input value={email} onChange={(e) => setEmail(e.target.value)}type="email" placeholder="correo@dominio.com" id="email" name="email" type="email" />
+                <input value={email} onChange={(e) => setEmail(e.target.value)}type="email" placeholder="correo@dominio.com" id="email" name="email" />
             </div>
             <div style={{ width: '50%', display: 'inline-block' }}>
                 <label htmlFor="address">Dirección de residencia</label>
@@ -152,9 +159,13 @@ export const Edit = (props) => {
         </div>
         <br></br>
         <button onClick={() => validar()}>Editar</button>
+        <button className="link-btn" onClick={() => props.onFormSwitch('editprofile')}>Prueb.</button>
+        
     </form>
-    <button className="link-btn" onClick={() => props.onFormSwitch('login')}>Regresar.</button>
+    <button className="link-btn" onClick={() => props.onFormSwitch('edit')}>Regresar.</button>
 </div>
+
+
 
     )
 }
