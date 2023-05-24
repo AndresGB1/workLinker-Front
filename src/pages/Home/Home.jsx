@@ -4,7 +4,8 @@ export const Home = (props) => {
   return (
     <div className="container-fluid d-flex align-items-center justify-content-center h-100">
       <div className="text-center">
-        <h1>Bienvenido al Portal de Solicitudes de Empleo</h1>   <button className="link-btn" onClick={() => props.onFormSwitch('edit')}>Volver.</button>
+        <h1>Bienvenido al Portal de Solicitudes de Empleo</h1>   <button className="link-btn" onClick={() => props.onFormSwitch('Inicio')}>Volver.</button>
+        <button className="link-btn" onClick={() => props.onFormSwitch('editprofile')}>EDITAR PERFIL</button>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at
           faucibus justo. Aenean condimentum quam ut fermentum lacinia. In non
