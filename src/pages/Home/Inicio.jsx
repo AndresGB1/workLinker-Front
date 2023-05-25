@@ -39,7 +39,7 @@ export const Inicio = (props) => {
               color: "black",
               marginRight: "30px",
               fontWeight: "bold",
-            }} onClick={() => props.onFormSwitch('register')}>
+            }} onClick={() => props.onFormSwitch('pruebas')}>
             Registrarse
           </Button>
 

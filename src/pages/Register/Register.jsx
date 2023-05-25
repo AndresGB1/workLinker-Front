@@ -100,8 +100,8 @@ export const Register = (props) => {
 
               <div className="d-flex flex-row align-items-center mb-4">
                 <MDBIcon fas icon="envelope me-3" size='lg'/>
-                <MDBInput label='Numero de documento'value={id} name="id" onChange={(e) => setId(e.target.value)} id="id"  type="number"/>
-                <MDBInput label='Numero de celular' value={phone} name="numero" onChange={(e) => setPhone(e.target.value)} id="numero" type="number"/>
+                <MDBInput label='Número de documento'value={id} name="id" onChange={(e) => setId(e.target.value)} id="id"  type="number"/>
+                <MDBInput label='Número de celular' value={phone} name="numero" onChange={(e) => setPhone(e.target.value)} id="numero" type="number"/>
               </div>
               
               <div className="d-flex flex-row align-items-center mb-4">

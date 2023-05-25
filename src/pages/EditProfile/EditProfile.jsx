@@ -132,7 +132,7 @@ export const EditProfile = (props) => {
                          placeholder="Inserta aca tu informacion personal"
                          cols="80"
                          rows={4}
-                    
+                        
                         />
                         
                         

@@ -9,7 +9,7 @@ import { Home } from "./pages/Home/Home";
 import { Inicio } from "./pages/Home/Inicio";
 import { EditProfile} from "./pages/EditProfile/EditProfile";
 import {Loginuevo} from "./pages/Login/newLogin";
-
+import {pruebahome } from "./pages/Home/Home2";
 
 function App() {
   const [currentForm, setCurrentForm] = useState('Inicio');
@@ -39,6 +39,8 @@ function App() {
           <EditProfile onFormSwitch = {toggleForm} />
         ) :currentForm==='newLogin' ? (
           <Loginuevo onFormSwitch = { toggleForm} />
+        ) :currentForm === 'pruebas' ? (
+          <pruebahome onFormSwitch = {toggleForm} />
         ) :null
       }
     </div>
