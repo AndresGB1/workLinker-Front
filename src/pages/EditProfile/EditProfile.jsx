@@ -25,7 +25,7 @@ export const EditProfile = (props) => {
           <Col md="8">
             <Card className="customCard">
               <Card.Header>
-                <Card.Title as="h4" >Editaar perfil</Card.Title>
+                <Card.Title as="h4" >Editar perfil</Card.Title>
               </Card.Header>
               <Card.Body>
                 <Form>

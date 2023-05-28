@@ -8,6 +8,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
+import "./inicio.css";
 
 export const Inicio = (props) => {
   return (
@@ -57,18 +58,18 @@ export const Inicio = (props) => {
 
         </div> 
       </div>
-      <div className="row mt-4">
-      <Carousel showArrows={true} autoPlay= {true} showThumbs= {false} infiniteLoop= {true} interval={1600}>
+      <div className="carrouselxd">
+      <Carousel width={900} showArrows={true} autoPlay= {true} showThumbs= {false} infiniteLoop= {true} interval={2000} dynamicHeight={false} className="hijocarrousel" >
                 <div>
-                    <img src={imagen1} height={500}/>
+                    <img src={imagen1} height={350}/>
                    
                 </div>
                 <div>
-                    <img src={imagen2} height={500}/>
+                    <img src={imagen2} height={350} />
                    
                 </div>
                 <div>
-                    <img src={imagen3}height={500}/>
+                    <img src={imagen3}height={350} />
                    
                 </div>
             </Carousel>
@@ -80,7 +81,7 @@ export const Inicio = (props) => {
               variant="secondary"
               
               style={{
-                width: "200px",
+                width: "160px",
                 height: "50px",
                 position: "absolute",
                 top: "70%",
@@ -97,7 +98,7 @@ export const Inicio = (props) => {
               variant="secondary"
               className="BuscoFree"
               style={{
-                width: "200px",
+                width: "160px",
                 height: "50px",
                 position: "absolute",
                 top: "70%",

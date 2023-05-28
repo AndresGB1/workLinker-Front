@@ -20,7 +20,7 @@ export const Home = (props) => {
                 <h5 className="card-title">Solicitantes de Empleo</h5>
                 <p className="card-text">
                   ¿Estás buscando empleo? Explora nuestras ofertas de trabajo y
-                  solicita hoy mismo tu empleo soñado.
+                  solicita hoy mismo tu empleo s  oñado.
                 </p>
                 <button
                   className="btn btn-primary"
