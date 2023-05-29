@@ -4,8 +4,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../../App.css";
 import rutas from "../../utils/axios";
 import axios from "axios";
+import { useNavigate } from "react-router";
 
 export const Login = (props) => {
+
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState('');
   const [pass, setPass] = useState('');
   const [error, setError] = useState(null);
@@ -20,11 +24,24 @@ export const Login = (props) => {
       .then((res) => {
         if (res.data === "" || !isValidEmail(email)) {
           setError("Datos incorrectos");
-          console.log(res.data);
+          alert("Datos incorrectos");
         }
         else {
+          sessionStorage.setItem("user", JSON.stringify(res.data));
+
+          
           alert("Bienvenido");
-          props.onGoToHome();
+
+          if (res.data.role === "admin") {
+            navigate("/admin");
+          }
+          else if (res.data.role === "freelancer") {
+            navigate("/freelancer");
+          }
+          else if (res.data.role === "employer") {
+            navigate("/employer");
+          }
+
         }
       })
       .catch((err) => {

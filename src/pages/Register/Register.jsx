@@ -12,11 +12,14 @@ import {
     MDBCardImage,
     MDBInput,
     MDBIcon,
-    MDBTextArea
   }
   from 'mdb-react-ui-kit';
+import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 
 export const Register = (props) => {
+    const navigate = useNavigate();
+
     const [email, setEmail] = useState('');
     const [id, setId] = useState('');
     const [pass, setPass] = useState('');
@@ -47,7 +50,15 @@ export const Register = (props) => {
             "userDescription": description,
             "role_id": usuario.rol
         }
-        )
+        ).then(res => {
+            console.log(res.data);
+            alert("Usuario creado correctamente");
+            navigate("/newLogin");
+        }
+        ).catch(err => {
+         alert("Error al crear el usuario");
+        })
+        
     }
     useEffect(() => {
         axios.get('http://localhost:8080/ws/role/all')
@@ -56,12 +67,12 @@ export const Register = (props) => {
                 setRoles(res.data);
             })
             .catch(err => {
-                console.log(err);
+               alert("Error al cargar los roles no se puede registrar");
             })
     }, [])
 
     const isValidate = () => {
-        if (email === '' || id === '' || pass === '' || name === '' || apellidos === '' || phone === '' || country === '' || city === '' || address === '' || usuario.rol === '') {
+        if (email === '' || id === '' || pass === '' || name === '' || apellidos === '' || phone === '' || country === '' || city === '' || address === '' || rol === '') {
             
             return false;
         }
@@ -70,11 +81,11 @@ export const Register = (props) => {
 
     const onChangue = (e) => {
         //found id at roles
-        const found = roles.find(element => element.roleName === e.target.value);
-        
+
+        const found = roles.find(element => element.roleName == e.target.value);
         setUsuario({
             ...usuario,
-            'rol': found.id
+            'rol': found.roleId
         })
         
         setRol(e.target.value);
@@ -115,10 +126,31 @@ export const Register = (props) => {
                 <MDBInput label='Correo electronico'value={email} onChange={(e) => setEmail(e.target.value)}type="email"  id="email" name="email" />
                 <MDBInput label='Password' value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="********" id="password" name="password"/>
               </div>
+              
+
+              <div className="d-flex flex-row align-items-center mb-4">
+                <MDBIcon fas icon="envelope me-3" size='lg'/>
+                <MDBInput label='Dirección' value={address} name="address" onChange={(e) => setAddress(e.target.value)} id="address" />
+              </div>
+
+
+
+              <div className="d-flex flex-row align-items-center mb-4">
+              <select className="form-select" aria-label="Default select example" onChange={onChangue}>
+                <option selected>Selecciona tu rol</option>
+                {roles.map((rol) => (
+                    <option value={rol.roleName}>{rol.roleName}</option>  
+                ))}
+            </select>
+              </div>
+              <div className="d-flex flex-row align-items-center mb-4">
               <textarea class="md-textarea form-control" rows="3" width placeholder="Descripción" ></textarea>
               <br></br>
+              </div>
+
               <button disabled={!isValidate()} onClick={handleSubmit} className="btn btn-primary">Registrarse</button>
-              <MDBBtn outline className="botonfeo" color='secondary' onClick={() => props.onFormSwitch('Inicio')}>
+
+              <MDBBtn outline className="botonfeo" color='secondary' onClick={() => navigate("/newLogin")}>
                      Volver
                 </MDBBtn>
             </MDBCol>
@@ -130,6 +162,8 @@ export const Register = (props) => {
              
             }}/>
             </MDBCol>
+          
+
 
           </MDBRow>
         </MDBCardBody>
