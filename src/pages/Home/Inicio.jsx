@@ -123,6 +123,7 @@ export const Inicio = (props) => {
         marginTop: "10%",
         
       }}
+      
     />
   </div>
 </div>

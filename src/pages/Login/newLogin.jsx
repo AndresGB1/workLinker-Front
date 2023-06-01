@@ -46,8 +46,16 @@ export const Loginuevo = (props) => {
         } else {
           alert("Bienvenido");
           sessionStorage.setItem("user", JSON.stringify(res.data));
-
-          window.location.href = "/miPerfil";
+          axios.get("http://localhost:8080/ws/role/findByUserId/"+res.data.user_id )
+          .then((res) => {
+            if (res.data.roleId === 1) {
+              window.location.href = "/freelancers";
+            }
+            if (res.data.roleId === 2) {
+              window.location.href = "/empleos";
+            }
+          })
+          
         }
       })
       .catch((err) => {

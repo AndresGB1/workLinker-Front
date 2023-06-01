@@ -1,26 +1,8 @@
 import React from 'react'
-import { Card } from 'react-bootstrap'
+import { Card,Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 import axios from 'axios'
-/**
- * 
- * CREATE TABLE `job_posting` (
-jobDescription
-: 
-"Descripcion"
-jobPostingDate
-: 
-"hoy"
-jobPostingId
-: 
-1
-jobTitle
-: 
-"Ingeniero Front-End"
-salaryRange
-: 
-"3000-4000USD"
- */
 
 export const Empleos = () => {
 
@@ -43,7 +25,14 @@ export const Empleos = () => {
 
 
     return (
-        <div className="container">
+        <div className="container">{
+            sessionStorage.getItem("user") !== null &&
+            <div className="text-center mt-5 mb-5 ">
+                    <Button variant="primary" type="submit" as={Link} to="/edit">
+                        Edit profile
+                    </Button>
+                    </div>
+}
             <div className="row">
                 {
                     empleos.map((empleo, index) => (

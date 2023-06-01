@@ -1,26 +1,3 @@
-/**base d on this     create a form to add a new job posting
- *     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "job_posting_id")
-    private Long jobPostingId;
-
-    @Column(name = "job_title", nullable = false)
-    private String jobTitle;
-
-    @Column(name = "salary_range")
-    private String salaryRange;
-
-    @Column(name = "job_description")
-    private String jobDescription;
-
-    @Column(name = "job_posting_date", nullable = false)
-    private String jobPostingDate;
-
-
-    @ManyToOne
-    @JoinColumn(name = "employer_id", nullable = false)
-    private User employer;
- */
-
 import React, { useState } from 'react'
 import { Form, Button } from 'react-bootstrap'
 import axios from 'axios'

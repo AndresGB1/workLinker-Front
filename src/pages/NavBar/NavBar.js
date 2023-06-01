@@ -15,7 +15,7 @@ export const NavBar = () => {
             className="logo"
             alt="Logo"
             style={{
-              width: "50%",
+              width: "70%",
               marginLeft: "10%",
               height: "auto",
             }}
