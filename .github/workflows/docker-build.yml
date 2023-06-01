@@ -1,18 +1,18 @@
 #andresgb1/react-software
 name: Publish Docker image
 
-on:
+on: # Trigger the workflow on push or pull request,
   push:
     branches:
       - master
 
-jobs:
-  push_to_registry:
-    name: Push Docker image to Docker Hub
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out the repo
-        uses: actions/checkout@v3
+jobs: # Set up jobs
+  push_to_registry: # Name the job
+    name: Push Docker image to Docker Hub # Name the job
+    runs-on: ubuntu-latest # Use the latest version of Ubuntu
+    steps: # Set up steps
+      - name: Check out the repo # Check out the repo
+        uses: actions/checkout@v3 # Use v3 of this action action is a reference to an action, and v3 is the version of the action to use from the GitHub Marketplace.
       
       - name: Log in to Docker Hub
         uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
@@ -20,7 +20,7 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       
-      - name: Extract metadata (tags, labels) for Docker
+      - name: Extract metadata (tags, labels) for Docker # Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
@@ -29,8 +29,8 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
         with:
-          context: .
-          file: ./Dockerfile
-          push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          context: . # Use the repository's root directory
+          file: ./Dockerfile # Use the Dockerfile in the root directory
+          push: true # Push the image to Docker Hub
+          tags: ${{ steps.meta.outputs.tags }} 
           labels: ${{ steps.meta.outputs.labels }}

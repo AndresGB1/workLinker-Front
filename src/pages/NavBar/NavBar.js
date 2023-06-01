@@ -66,7 +66,8 @@ export const NavBar = () => {
                 >
                   Registrarse
                 </Button>
-      
+                <h1>Hols</h1>
+
                 <Button
                   variant="dark"
                   style={{
